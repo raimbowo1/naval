@@ -1,0 +1,45 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/qbWwrT7f"))()
+local window = kavoUi.CreateLib("Mobile Hub","DarkTheme")
+
+
+local Tab1 = Window:NewTab("Combat")
+local Section1 = Tab1:NewSection("Must hold out the Rifle/RPG for the auras)
+
+Tab1Section:NewButton("Rifle aura","Kill any nearby enemies",function()
+while true do
+		wait(0.3) -- don't change this
+ 
+		-- finding the characters
+		for i, v in pairs(game.Workspace:GetChildren()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				if v:FindFirstChild("Humanoid") then
+ 
+					-- team check
+					local victimplayers = game.Players:GetPlayerFromCharacter(v)
+					if victimplayers.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+ 
+						-- killing everyone
+						local Event = game:GetService("ReplicatedStorage").Event
+						Event:FireServer(
+							"shootRifle",
+							"",
+							{
+								v.Head
+							}
+ 
+						)
+						Event:FireServer(
+							"shootRifle",
+							"hit",
+							{
+								v.Humanoid
+ 
+							}
+ 
+						)
+					end
+				end
+			end
+		end
+	end
+end)
