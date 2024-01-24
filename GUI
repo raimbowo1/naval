@@ -230,7 +230,17 @@ local Tab = Window:MakeTab({
 
 Tab:AddParagraph("How to use","These scripts shoot airplanes within 2.4k studs. One's for white machine guns on islands, harbors, carriers, and battleships. The other's for the player-driven ship (no carriers, battleships, or submarines). It auto-shoots airplanes or nearby targets. Click 'Change Gun' to switch to the machine gun. The scripts aren't perfect but still get some planes down.")
 
+Tab:AddButton({
+	Name = "White machine guns",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raimbowo1/naval/main/1shoot.lua.txt"))()end    
+})
 
+Tab:AddButton({
+	Name = "Your boat machine guns",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raimbowo1/naval/main/bom"))()end    
+})
 
 
 
