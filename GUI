@@ -230,11 +230,11 @@ local Tab = Window:MakeTab({
 
 
 local Section = Tab:AddSection({
-	Name = "So these scripts shoot at airplanes flying within 2.4k studs.\n It's not perfect but gets the job done."
+	Name = "So these scripts shoot at airplanes flying within 2.4k studs.\n It's not perfect but gets the job done.\n\n"
 })
 
 local Section = Tab:AddSection({
-	Name = "There are two. One for the white machine gun that\n are found on islands, harbors, carriers, and some ships. And the other one is for your own ship. It will automatically shoot at airplanes\n or anything nearby.\n Click on change gun to change to machine gun."
+	Name = "There are two. One for the white machine gun that are found on\n islands, harbors, carriers, and some ships. And the other one is for\n your own ship. It will automatically shoot at airplanes or anything nearby.\n Click on change gun to change to machine gun."
 })
  
 
