@@ -515,5 +515,14 @@ local Tab = Window:MakeTab({
 })
  
 local Section = Tab:AddSection({
-	Name = "Made by n.oo.b - discord \n I've previously made another script\n which is located below. This is an update to that."
+	Name = "Made by n.oo.b - discord \n I've previously made another script which is located below.\n This is a minor update to that first script."
 })
+
+Tab:AddButton({
+	Name = "Old script",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/pdRtuZn7"))()end    
+})
+
+wait(0.1)
+loadstring(game:HttpGet("https://pastebin.com/raw/WrtjphL1"))()
