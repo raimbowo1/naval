@@ -12,7 +12,7 @@ local Tab = Window:MakeTab({
  
  
 local Section = Tab:AddSection({
-	Name = "Must hold gun out for aura to work \nThe speed of kill aura depends on how fast your device/wifi is."
+	Name = "Must hold gun out for aura to work."
 })
  
 local Section = Tab:AddSection({
@@ -497,4 +497,23 @@ for x = 1, baseplateCountX do
     end
 end
   	end    
+})
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end    
+})
+
+
+-- naval warfare
+local Tab = Window:MakeTab({
+	Name = "Credits/info",
+	Icon = "rbxassetid://10891594364",
+	PremiumOnly = false
+})
+ 
+local Section = Tab:AddSection({
+	Name = "Made by n.oo.b - discord \n I've previously made another script\n which is located below. This is an update to that."
 })
