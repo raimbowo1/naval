@@ -221,6 +221,27 @@ end
 })
 
 
+-- naval warfare
+local Tab = Window:MakeTab({
+	Name = "Anti-air",
+	Icon = "rbxassetid://10891594364",
+	PremiumOnly = false
+})
+
+
+local Section = Tab:AddSection({
+	Name = "So these scripts shoot at airplanes flying within 2.4k studs.\n It's not perfect but gets the job done."
+})
+
+local Section = Tab:AddSection({
+	Name = "There are two. One for the white machine gun that\n are found on islands, harbors, carriers, and some ships. And the other one is for your own ship. It will automatically shoot at airplanes\n or anything nearby.\n Click on change gun to change to machine gun."
+})
+ 
+
+
+
+
+
 
 local Tab = Window:MakeTab({
 	Name = "Teleport",
