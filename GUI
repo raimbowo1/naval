@@ -228,14 +228,9 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddParagraph("How to use","These scripts shoot airplanes within 2.4k studs. One's for white machine guns on islands, harbors, carriers, and some ships. The other's for the player-driven ship (no carriers, battleships, or submarines). It auto-shoots airplanes or nearby targets. Click 'Change Gun' to switch to the machine gun.")
 
-local Section = Tab:AddSection({
-	Name = "So these scripts shoot at airplanes flying within 2.4k studs.\n It's not perfect but gets the job done.\n\n"
-})
 
-local Section = Tab:AddSection({
-	Name = "There are two. One for the white machine gun that are found on\n islands, harbors, carriers, and some ships. And the other one is for\n your own ship. It will automatically shoot at airplanes or anything nearby.\n Click on change gun to change to machine gun."
-})
  
 
 
