@@ -1,25 +1,27 @@
 -- Get the LocalPlayer
 local player = game.Players.LocalPlayer
 
--- Function to teleport and freeze the vehicle
-local function teleportAndFreeze()
-    -- Check if the player has a character and is in an airplane
-    if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("HumanoidSeat") then
-        -- Get the player's airplane
-        local airplane = player.Character.HumanoidSeat.Part0
+-- Function to teleport a player and their vehicle
+local function teleportPlayerAndVehicle(position)
+    -- Check if the player has a character
+    if player.Character then
+        -- Teleport the player's character
+        player.Character:SetPrimaryPartCFrame(CFrame.new(position))
 
-        -- Teleport the player and the airplane to the specified coordinates
-        player.Character:SetPrimaryPartCFrame(CFrame.new(Vector3.new(-3, 85, -8125)))
-        airplane.CFrame = player.Character:GetPrimaryPartCFrame()
+        -- Check if the player is in a vehicle
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
 
-        -- Freeze the airplane by anchoring it
-        airplane.Anchored = true
+        if humanoid.SeatPart then
+            -- Teleport the vehicle
+            local vehicle = humanoid.SeatPart.Parent
+            vehicle:SetPrimaryPartCFrame(CFrame.new(position))
+        end
     end
 end
 
--- Call the function once the LocalPlayer is loaded
-if player.Character then
-    teleportAndFreeze()
-else
-    player.CharacterAdded:Connect(teleportAndFreeze)
-end
+-- Example coordinate (change this to your desired destination)
+local destination = Vector3.new(-3, 85, -8125)
+
+-- Teleport the player and their vehicle to the specified coordinate
+teleportPlayerAndVehicle(destination)
