@@ -39,5 +39,36 @@ if workspace:FindFirstChild("Bomber") then
 end
 
 if workspace:FindFirstChild("Torpedo Bomber") then
-    workspace.Torpedo.MainBody.Anchored = true
+    workspace["Torpedo Bomber"].MainBody.Anchored = true
 end
+
+-- Wait for another 0.1 seconds
+wait(0.1)
+
+-- Fire the first server event
+local args1 = {
+    [1] = "startEngine",
+    [2] = {
+        [1] = 19784.33246273249,
+        [2] = 1.2,
+        [3] = 40
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(args1))
+
+-- Wait for 0.1 seconds
+wait(0.1)
+
+-- Repeat the script 4 times
+for i = 1, 4 do
+    -- Fire the second server event
+    local args2 = {
+        [1] = "bomb"
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(args2))
+end
+
+-- Print "done"
+print("done")
