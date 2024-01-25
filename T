@@ -58,6 +58,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(arg
 wait(0.6)
 
 -- Repeat the script 4 times
+-- Introduce a delay of 0.2 seconds between each bomb drop
 for i = 1, 4 do
     -- Fire the second server event
     local args2 = {
@@ -65,7 +66,11 @@ for i = 1, 4 do
     }
 
     game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(args2))
+
+    -- Wait for 0.2 seconds before the next iteration
+    wait(0.2)
 end
+
 
 -- Print "done"
 print("done")
