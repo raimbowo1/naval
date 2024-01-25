@@ -19,7 +19,10 @@ local function teleportPlayer()
                 vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
 
                 -- Anchor the MainBody of the "Large Bomber"
+                largeBomber.MainBody:SetNetworkOwner(nil) -- Release network ownership
                 largeBomber.MainBody.Anchored = true
+                wait(0.1) -- Wait for network ownership to be released
+                largeBomber.MainBody:SetNetworkOwner(player) -- Regain network ownership
             else
                 player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
 
@@ -28,7 +31,10 @@ local function teleportPlayer()
                 humanoidRootPart.Anchored = true
 
                 -- Anchor the MainBody of the "Large Bomber"
+                largeBomber.MainBody:SetNetworkOwner(nil) -- Release network ownership
                 largeBomber.MainBody.Anchored = true
+                wait(0.1) -- Wait for network ownership to be released
+                largeBomber.MainBody:SetNetworkOwner(player) -- Regain network ownership
             end
         else
             -- Teleport the player normally without anchoring the "Large Bomber"
