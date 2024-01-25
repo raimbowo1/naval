@@ -8,49 +8,36 @@ local destination = Vector3.new(-3, 85, -8125)
 local function teleportPlayer()
     -- Check if the player has a character
     if player.Character then
-        -- Check if the player is the owner of the "Large Bomber"
-        local largeBomber = workspace["Large Bomber"]
-        local ownerValue = largeBomber.Owner.Value
+        -- Check if the player is in a vehicle
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
 
-        if ownerValue == player then
-            -- Teleport the player or their vehicle
-            if player.Character:FindFirstChildOfClass("Humanoid").SeatPart then
-                local vehicle = player.Character:FindFirstChildOfClass("Humanoid").SeatPart.Parent
-                vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
-
-                -- Anchor the MainBody of the "Large Bomber"
-                largeBomber.MainBody:SetNetworkOwner(nil) -- Release network ownership
-                largeBomber.MainBody.Anchored = true
-                wait(0.1) -- Wait for network ownership to be released
-                largeBomber.MainBody:SetNetworkOwner(player) -- Regain network ownership
-            else
-                player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
-
-                -- Set HumanoidRootPart to be anchored
-                local humanoidRootPart = player.Character:WaitForChild("HumanoidRootPart")
-                humanoidRootPart.Anchored = true
-
-                -- Anchor the MainBody of the "Large Bomber"
-                largeBomber.MainBody:SetNetworkOwner(nil) -- Release network ownership
-                largeBomber.MainBody.Anchored = true
-                wait(0.1) -- Wait for network ownership to be released
-                largeBomber.MainBody:SetNetworkOwner(player) -- Regain network ownership
-            end
+        if humanoid.SeatPart then
+            -- Teleport the vehicle
+            local vehicle = humanoid.SeatPart.Parent
+            vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
         else
-            -- Teleport the player normally without anchoring the "Large Bomber"
-            if player.Character:FindFirstChildOfClass("Humanoid").SeatPart then
-                local vehicle = player.Character:FindFirstChildOfClass("Humanoid").SeatPart.Parent
-                vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
-            else
-                player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
-
-                -- Set HumanoidRootPart to be anchored
-                local humanoidRootPart = player.Character:WaitForChild("HumanoidRootPart")
-                humanoidRootPart.Anchored = true
-            end
+            -- Teleport the player's character
+            player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
         end
     end
 end
 
 -- Teleport the player to the specified destination
 teleportPlayer()
+
+-- Wait for 0.1 seconds
+wait(0.1)
+
+-- Anchor the specified parts
+if workspace:FindFirstChild("Large Bomber") then
+    workspace["Large Bomber"].MainBody.Anchored = true
+end
+
+if workspace:FindFirstChild("Bomber") then
+    workspace.Bomber.MainBody.Anchored = true
+end
+
+if workspace:FindFirstChild("Torpedo") then
+    workspace.Torpedo.MainBody.Anchored = true
+end
