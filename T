@@ -68,7 +68,7 @@ for i = 1, 4 do
     game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(args2))
 
     -- Wait for 0.2 seconds before the next iteration
-    wait(0.2)
+    wait(0.8)
 end
 
 
