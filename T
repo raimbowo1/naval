@@ -34,13 +34,6 @@ if workspace:FindFirstChild("Large Bomber") then
     workspace["Large Bomber"].MainBody.Anchored = true
 end
 
-if workspace:FindFirstChild("Bomber") then
-    workspace.Bomber.MainBody.Anchored = true
-end
-
-if workspace:FindFirstChild("Torpedo Bomber") then
-    workspace["Torpedo Bomber"].MainBody.Anchored = true
-end
 
 -- Wait for another 0.1 seconds
 wait(0.1)
