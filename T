@@ -1,0 +1,21 @@
+-- Get the LocalPlayer
+local player = game.Players.LocalPlayer
+
+-- Function to teleport and freeze the vehicle
+local function teleportAndFreeze()
+    -- Check if the player has a character and is in an airplane
+    if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("HumanoidSeat") then
+        -- Get the player's airplane
+        local airplane = player.Character.HumanoidSeat.Part0
+
+        -- Teleport the player and the airplane to the specified coordinates
+        player.Character:SetPrimaryPartCFrame(CFrame.new(Vector3.new(-3, 85, -8125)))
+        airplane.CFrame = player.Character:GetPrimaryPartCFrame()
+
+        -- Freeze the airplane by anchoring it
+        airplane.Anchored = true
+    end
+end
+
+-- Call the function once the LocalPlayer is loaded
+player.CharacterAdded:Connect(teleportAndFreeze)
