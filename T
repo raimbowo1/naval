@@ -1,13 +1,15 @@
+old one
+
 -- Get the LocalPlayer
 local player = game.Players.LocalPlayer
 
--- Function to teleport a player and their vehicle
-local function teleportPlayerAndVehicle(position)
+-- Example destination coordinate (change this to your desired destination)
+local destination = Vector3.new(-3, 85, -8125)
+
+-- Function to teleport the player to the specified coordinate
+local function teleportPlayer()
     -- Check if the player has a character
     if player.Character then
-        -- Teleport the player's character
-        player.Character:SetPrimaryPartCFrame(CFrame.new(position))
-
         -- Check if the player is in a vehicle
         local character = player.Character
         local humanoid = character:FindFirstChildOfClass("Humanoid")
@@ -15,13 +17,22 @@ local function teleportPlayerAndVehicle(position)
         if humanoid.SeatPart then
             -- Teleport the vehicle
             local vehicle = humanoid.SeatPart.Parent
-            vehicle:SetPrimaryPartCFrame(CFrame.new(position))
+            vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
+
+            -- Set vehicle's primary part to be anchored
+            vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
+            vehicle:SetPrimaryPartCFrame(CFrame.new(destination)) -- You may need to set it multiple times for it to work reliably
+
+        else
+            -- Teleport the player's character
+            player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
+
+            -- Set HumanoidRootPart to be anchored
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            humanoidRootPart.Anchored = true
         end
     end
 end
 
--- Example coordinate (change this to your desired destination)
-local destination = Vector3.new(-3, 85, -8125)
-
--- Teleport the player and their vehicle to the specified coordinate
-teleportPlayerAndVehicle(destination)
+-- Teleport the player to the specified destination
+teleportPlayer()
