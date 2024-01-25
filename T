@@ -38,6 +38,6 @@ if workspace:FindFirstChild("Bomber") then
     workspace.Bomber.MainBody.Anchored = true
 end
 
-if workspace:FindFirstChild("Torpedo") then
+if workspace:FindFirstChild("Torpedo Bomber") then
     workspace.Torpedo.MainBody.Anchored = true
 end
