@@ -18,4 +18,8 @@ local function teleportAndFreeze()
 end
 
 -- Call the function once the LocalPlayer is loaded
-player.CharacterAdded:Connect(teleportAndFreeze)
+if player.Character then
+    teleportAndFreeze()
+else
+    player.CharacterAdded:Connect(teleportAndFreeze)
+end
