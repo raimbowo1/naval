@@ -2,7 +2,7 @@
 local player = game.Players.LocalPlayer
 
 -- Example destination coordinate (change this to your desired destination)
-local destination = Vector3.new(20, 172, 8138)
+local destination = Vector3.new(16, 172, 8138)
 
 -- Function to teleport the player to the specified coordinate
 local function teleportPlayer()
