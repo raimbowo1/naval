@@ -29,11 +29,11 @@ teleportPlayer()
 -- Wait for 0.1 seconds
 wait(0.1)
 
--- Anchor the specified parts
-if workspace:FindFirstChild("Large Bomber") then
-    workspace["Large Bomber"].MainBody.Anchored = true
+-- Anchor the specified parts only if the player owns the plane
+local largeBomber = workspace:FindFirstChild("Large Bomber")
+if largeBomber and largeBomber:FindFirstChild("Owner") and largeBomber.Owner.Value == player then
+    largeBomber.MainBody.Anchored = true
 end
-
 
 -- Wait for another 0.1 seconds
 wait(0.1)
@@ -51,7 +51,7 @@ local args1 = {
 game:GetService("ReplicatedStorage"):WaitForChild("Event"):FireServer(unpack(args1))
 
 -- Wait for 0.1 seconds
-wait(0.1)
+wait(0.5)
 
 -- Repeat the script 4 times
 for i = 1, 4 do
