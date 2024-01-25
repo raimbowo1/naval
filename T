@@ -15,43 +15,10 @@ local function teleportPlayer()
         if humanoid.SeatPart then
             -- Teleport the vehicle
             local vehicle = humanoid.SeatPart.Parent
-            local newCFrame = CFrame.new(destination)
-
-            -- Teleport the vehicle
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-
-            -- Anchor the vehicle
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame) -- You may need to set it multiple times for it to work reliably
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-
-            -- Set vehicle's primary part to be anchored
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCFrame)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-            vehicle:SetPrimaryPartCFrame(newCframe)
-
+            vehicle:SetPrimaryPartCFrame(CFrame.new(destination))
         else
             -- Teleport the player's character
             player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
-
-            -- Set HumanoidRootPart to be anchored
-            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-            humanoidRootPart.Anchored = true
         end
     end
 end
