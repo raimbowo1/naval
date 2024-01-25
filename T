@@ -1,5 +1,3 @@
-old one
-
 -- Get the LocalPlayer
 local player = game.Players.LocalPlayer
 
